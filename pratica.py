@@ -21,7 +21,107 @@ desconto = (n1 * n2) / 100
 
 print(f"o desconto é de: R${desconto}")
 
-#Programa para calcular juros
+#Calculadora simples
+
+def soma(n1, n2):
+  return n1 + n2
+
+def multiplicaçao(n1, n2):
+  return n1 * n2
+
+def subtraçao(n1, n2):
+  return n1 - n2
+
+def divisao(n1, n2):
+  return n1 / n2
+
+recept = (input("Qual operaçao voce quer fazer? (soma,subtraçao,divisao,multiplicaçao) ")).strip() .lower()
+
+n1 = float(input("digite o numero: "))
+n2 = float(input("digite o numero: "))
+
+if recept == "soma":
+  print(f"Resultado: {soma(n1, n2)}")
+
+elif recept == "subtraçao":
+  print(f"Resultado : {subtraçao(n1,n2)}")
+
+elif recept == "multiplicacao":
+  print(f"Resultado: {multiplicaçao(n1, n2)}")
+
+elif recept == "divisao":
+  print(f"Resultado: {divisao(n1, n2)}")
+else:
+  print("Operação inválida.")
+
+#Numeros primos
+
+num = int(input("Digite um número: "))
+tot = 0
+
+def é_primo_ou_nao(x):
+    global tot
+    for c in range(1, x + 1):
+        if x % c == 0:
+            print("\033[34m", end="")
+            tot += 1
+        else:
+            print("\033[m", end="")
+        print(f"{c}", end=" ")
+    print() 
+
+é_primo_ou_nao(num)
+
+print(f"O número {num} foi divisível por {tot} números.")
+if tot == 2:
+    print("É primo!!")
+else:
+    print("Não é primo.")
+
+#analise de dados 
+from datetime import date
+ano = date.today().year
+tomaior = 0
+tomenor = 0
+
+for c in range (1,8):
+    ans = int(input(f"em que ano a {c} pessoa nsceu? "))
+    idade = ano - ans
+    if idade >= 21:
+        tomaior += 1
+    else:
+        tomenor += 1
+print(f"ao todo tivemos {tomaior} pessoas maiores de idade")
+print(f"e tambem tivemos {tomenor} pessoas de menor")
+
+#Analise de dados 
+
+somaidade = 0
+maisvelhohomem = 0
+nomevelho = ""
+totmulher20 = 0
+
+for p in range (1,5):
+    print(f"------{p}ª PESSOA------" * 1)
+    nome = str(input("Qaul seu nome:"))
+    idade = int(input("digitte sua idade:"))
+    sexo = str(input("Sexo [M/F]:")).upper()
+
+    somaidade += idade
+
+    if sexo == "M" and (p == 1 or idade > maisvelhohomem):
+        maisvelhohomem = idade
+        nomevelho = nome
+    
+    if sexo in "F" and idade < 20:
+        totmulher20 += 1
+
+mediaidade = somaidade / 4
+print(f"a media e {mediaidade}")
+print(f"o homem mais velho tem {maisvelhohomem} anos e se chama {nomevelho}")
+print(f"ao todo sao {totmulher20} mulheres com menos de 20 anos")
+
+
 
 
 

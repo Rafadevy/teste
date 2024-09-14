@@ -79,6 +79,8 @@ else:
     print("Não é primo.")
 
 #analise de dados 
+
+
 from datetime import date
 ano = date.today().year
 tomaior = 0

@@ -124,6 +124,32 @@ print(f"o homem mais velho tem {maisvelhohomem} anos e se chama {nomevelho}")
 print(f"ao todo sao {totmulher20} mulheres com menos de 20 anos")
 
 
+toth = 0
+totm20 = 0
+while True:
+    id = int(input("IDADE: "))
+    sexo = (input("SEXO [M/F] ")).strip().upper()
+    while sexo not in "MF":
+        print("DIGITE UMA OPCAO VALIDA")
+        sexo = input("SEXO [M/F]: ").strip().upper()
+
+    if id >= 18:
+        tot18 += 1
+    if sexo == "H":
+        toth += 1
+    if sexo == "F" and id < 20:
+        totm20 += 1
+
+    resp = input("QUER CONTINUAR? ").strip().upper()
+    while resp not in "SN":
+        print("QUER CONTINUAR? [S/N]")
+    if resp == "N":
+       break
+
+print(f"O numero de maiores de idade é {tot18}")
+print(f"O numero de homem cadastrados é {toth}")
+print(f"O numero de mulheres com menos de 20 anos é {totm20}")
+
 
 
 

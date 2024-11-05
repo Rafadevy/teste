@@ -123,7 +123,6 @@ print(f"a media e {mediaidade}")
 print(f"o homem mais velho tem {maisvelhohomem} anos e se chama {nomevelho}")
 print(f"ao todo sao {totmulher20} mulheres com menos de 20 anos")
 
-
 toth = 0
 totm20 = 0
 while True:
@@ -149,6 +148,70 @@ while True:
 print(f"O numero de maiores de idade é {tot18}")
 print(f"O numero de homem cadastrados é {toth}")
 print(f"O numero de mulheres com menos de 20 anos é {totm20}")
+
+import random
+numeros = tuple((random.randint(1,10)) for _ in range(5))
+
+print(f"Numeros gerados: {numeros}")
+
+print("menor",min(numeros))
+print("maior",max(numeros))
+
+tupla = ()
+for _ in range (5):
+    numeros = (random.randint(1,10))
+    tupla += (numeros,)
+print("Numeros gerados:",tupla)
+print("menor",min(tupla))
+print("maior",max(tupla))
+
+def two_sum(nums, target):
+    num_to_index = {}
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in num_to_index:
+            return [num_to_index[complement], i]
+        num_to_index[num] = i
+    return []
+
+nums = [2, 7, 11, 15]
+target = 9
+
+print(two_sum(nums, target))
+
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        str_x = str(x)
+        inverso = str_x[::-1]
+        return str_x == inverso
+
+solution = Solution()
+
+print(solution.isPalindrome(121))
+print(solution.isPalindrome(-121))
+print(solution.isPalindrome(10))
+
+#converter str -> int "string para inteiro"
+def romanoToInt(s: str) -> int:
+    roman_to_int = {
+            'I': 1, 'V': 5, 'X': 10, 'L': 50,
+            'C': 100, 'D': 500, 'M': 1000
+        }
+    total = 0
+    prev_value = 0
+
+    for char in s:
+        value = roman_to_int[char]
+        if value > prev_value:
+            total += value - 2 * prev_value
+        else:
+            total += value
+        prev_value = value
+    
+    return total
+
+s = input("Digite um algarismo romano: ")
+print(romanoToInt(s))
 
 
 
